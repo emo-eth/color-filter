@@ -1,14 +1,3 @@
-function makeFilter(color) {
-  /*
-   * returns a filter with a frequency range and Q based on
-   * the color specified
-   */
-  var frequency = convertColorToFrequency(color);
-  var filter = new Tone.Filter(frequency, 'bandpass', -24);
-  filter.Q = setQ(color);
-  return filter;
-}
-
 function convertColorToFrequency(color) {
   /*
    * Uses fancy math to convert a color to a frequency
@@ -30,10 +19,10 @@ function convertColorToFrequency(color) {
 
 function convertColorForQ(color) {
   // an L value of 1 (eg white)
-  console.log('convertColorForQ')
+  console.log('convertColorForQ');
   var qScale = d3.scaleLinear().domain([0.5, 1]).range([0.71, 0]);
   var hsl = d3.hsl(color);
-  console.log(hsl)
+  console.log(hsl);
   console.log(qScale(hsl.l));
   return qScale(hsl.l);
 }
@@ -69,7 +58,7 @@ var synth = new Tone.MonoSynth({
     "sustain": 0,
     "release": 0,
     "octaves": 4
-  }
+  }, "filter": {"type": "bandpass"}
 });
 
 function updateFilter(r, g, b) {
@@ -80,7 +69,7 @@ function updateFilter(r, g, b) {
   if (colorFreq) {
     synth.filterEnvelope.baseFrequency = colorFreq;
   }
-  console.log(synth.filter.Q)
+  console.log(synth.filter.Q);
   // this, uh, doesn't work bc i have no idea what kind of object Q is/how it stores info
   synth.filter.Q._param.value = qVal;
 }
