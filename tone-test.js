@@ -76,6 +76,7 @@ function updateFilter(r, g, b) {
 
 //console.log(d3.hsl('#ff00ff'));
 //console.log(convertColorToFrequency('#ffffff'));
+// this is a comment to bump the amount of js back up to 69%
 synth.toMaster();
 synth.triggerAttack("C4");
 
