@@ -1,16 +1,30 @@
-console.log("Hello World");
+console.log("Hello BUTTS");
 
-var synth = new Tone.Synth({
-    "oscillator" : {
-        "type" : "sine",
-        "modulationFrequency" : 0.2
-    },
-    "envelope" : {
-        "attack" : 0.02,
-        "decay" : 0.1,
-        "sustain" : 0.1,
-        "release" : 0.9,
-    }
-}).toMaster();
+function makeFilter(color) {
+  /*
+   * returns a filter with a frequency range and Q based on
+   * the color specified
+   */
+  var frequency = convertColorToFrequency(color);
+  var filter = new Tone.Filter(frequency, 'lowpass', -24);
+  filter.Q = setQ(color);
+  return filter;
+}
 
-synth.triggerAttack("D3", "+1");
+function convertColorToFrequency(color) {
+  /*
+   * Uses fancy math to convert a color to a frequency
+   */
+  return 69;
+}
+
+function setQ(color) {
+  /*
+   * Uses fancy/arbitrary math to convert brightness to a Q value
+   */
+  return 420;
+}
+
+var synth = new Tone.MonoSynth().toMaster();
+
+synth.triggerAttack("C4");
