@@ -4,7 +4,7 @@ function makeFilter(color) {
    * the color specified
    */
   var frequency = convertColorToFrequency(color);
-  var filter = new Tone.Filter(frequency, 'lowpass', -24);
+  var filter = new Tone.Filter(frequency, 'bandpass', -24);
   filter.Q = setQ(color);
   return filter;
 }
@@ -17,7 +17,7 @@ function convertColorToFrequency(color) {
   // RGB > HSL > Wavelength > octave > freq?
   // linear scale
   console.log('convertColorToFrequency ' + color);
-  var wlToOctave = d3.scaleLinear().domain([656, 445]).range([0, 10]).clamp(true);
+  var wlToOctave = d3.scaleLinear().domain([656, 445]).range([3, 10]).clamp(true);
   var hsl = d3.hsl(color);
   console.log('inner hsl ' + hsl);
   var wl = convertHuetoWL(hsl);
