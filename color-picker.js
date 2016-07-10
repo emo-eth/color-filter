@@ -79,25 +79,22 @@
         curr_hue = (theta + Math.PI) / (Math.PI * 2); // Degrees along the circle
         curr_saturation = Math.sqrt(distance) / RADIUS;
         var [r, g, b] = hsvToRgb(curr_hue, curr_saturation, 1);
-        // r = res[0]
-        // g = res[1]
-        // b = res[2]
 
         // Reset to color wheel and draw a spot on the current location. 
         CONTEXT.putImageData(image_data, 0, 0);
         updateFilter(r, g, b);
 
-        cursor = new Image();
-        cursor.src = 'JamesHead.png';
-        cursor.onload = function() {
-            x_pos = curr_x + RADIUS - CIRCLE_OFFSET - 5;
-            y_pos = curr_y + RADIUS - CIRCLE_OFFSET + 5;
-            CONTEXT.drawImage(cursor, x_pos, y_pos, 20, 20);
-        }
+        // cursor = new Image();
+        // cursor.src = 'JamesHead.png';
+        // cursor.onload = function() {
+        //     x_pos = curr_x + RADIUS - CIRCLE_OFFSET - 5;
+        //     y_pos = curr_y + RADIUS - CIRCLE_OFFSET + 5;
+        //     CONTEXT.drawImage(cursor, x_pos, y_pos, 20, 20);
+        // }
 
-        // // Heart:
-        // CONTEXT.font = "1em arial";
-        // CONTEXT.fillText("♥", curr_x + RADIUS + CIRCLE_OFFSET - 4, curr_y + RADIUS + CIRCLE_OFFSET + 4); 
+        // Heart:
+        CONTEXT.font = "1em arial";
+        CONTEXT.fillText("♥", curr_x + RADIUS + CIRCLE_OFFSET - 4, curr_y + RADIUS + CIRCLE_OFFSET + 4); 
     }
 
     /* Let's go! */
