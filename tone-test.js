@@ -74,9 +74,26 @@ function updateFilter(r, g, b) {
   synth.filter.Q._param.value = qVal;
 }
 
+var playing = false;
+
+function trigger() {
+    console.log('trigger');
+    if (playing) {
+        synth.triggerRelease();
+        playing = false;
+    } else {
+        synth.triggerAttack("C4");
+        playing = true;
+    }
+}
+
+d3.select('.button').on('click', function () {
+    trigger();
+});
+
 //console.log(d3.hsl('#ff00ff'));
 //console.log(convertColorToFrequency('#ffffff'));
 // this is a comment to bump the amount of js back up to 69%
 synth.toMaster();
-synth.triggerAttack("C4");
+//synth.triggerAttack("C4");
 
