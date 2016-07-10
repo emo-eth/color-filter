@@ -84,14 +84,6 @@
         CONTEXT.putImageData(image_data, 0, 0);
         updateFilter(r, g, b);
 
-        // cursor = new Image();
-        // cursor.src = 'JamesHead.png';
-        // cursor.onload = function() {
-        //     x_pos = curr_x + RADIUS - CIRCLE_OFFSET - 5;
-        //     y_pos = curr_y + RADIUS - CIRCLE_OFFSET + 5;
-        //     CONTEXT.drawImage(cursor, x_pos, y_pos, 20, 20);
-        // }
-
         // Heart:
         CONTEXT.font = "1em arial";
         CONTEXT.fillText("♥", curr_x + RADIUS + CIRCLE_OFFSET - 4, curr_y + RADIUS + CIRCLE_OFFSET + 4); 

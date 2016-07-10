@@ -5,6 +5,7 @@
 
 h1 {
 	text-align: center;
+	width: 100%;
 }
 
 .row {
@@ -21,5 +22,13 @@ h1 {
 #plebian {
 	padding-top: 30px;
 	padding-bottom: 30px;
-	background-color: #ff6666
+	background-color: #ff6666;
+	font-size: 24px;
+	bottom: 0;
+	width: 100%;
+	position: fixed;
+}
+
+.container-fluid {
+	margin-top: -20px;
 }
